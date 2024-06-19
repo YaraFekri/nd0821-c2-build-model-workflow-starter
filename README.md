@@ -14,7 +14,8 @@ to be retrained with the same cadence, necessitating an end-to-end pipeline that
 
 ## Project Summary and Improvement Opportunities
 
-This project utilizes Python 3, MLflow, and Hydra to create and manage machine learning experiments. The results and artifacts are stored on Weights&Biases [project](https://wandb.ai//itiiiiiiiiiiiiiii/nyc_airbnb/overview).
+This project utilizes Python 3, MLflow, and Hydra to create and manage machine learning experiments. The results and artifacts are stored on
+Weights&Biases project https://wandb.ai/itiiiiiiiiiiiiiii/nyc_airbnb/overview
 
 The best performing model is identified and its hyperparameters are used as defaults in the config.yaml file, managed by Hydra for configuration through the command line.
 
