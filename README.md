@@ -1,11 +1,42 @@
+[//]: # (Image References)
+
+[image1]: ./images/MLOps-process_fromNeptuneAI.PNG "ML workflow:"
+[image2]: ./images/mlops_nyc_airbnb_projectstructure.PNG "Project structure:"
+[image3]: ./images/nyc_airbnb_model-artifact_rf-regression_prod.PNG "End-to-end pipeline:"
+
 # Build an ML Pipeline for Short-Term Rental Prices in NYC
-You are working for a property management company renting rooms and properties for short periods of 
-time on various rental platforms. You need to estimate the typical price for a given property based 
-on the price of similar properties. Your company receives new data in bulk every week. The model needs 
+## Business Use Case
+We are working for a property management company renting rooms and properties for short periods of 
+time on various rental platforms. We need to estimate the typical price for a given property based 
+on the price of similar properties. Our company receives new data in bulk every week. The model needs 
 to be retrained with the same cadence, necessitating an end-to-end pipeline that can be reused.
 
-In this project you will build such a pipeline.
 
+## Project Summary and Improvement Opportunities
+
+This project utilizes Python 3, MLflow, and Hydra to create and manage machine learning experiments. The results and artifacts are stored on Weights&Biases [project](https://wandb.ai//itiiiiiiiiiiiiiii/nyc_airbnb/overview).
+
+The best performing model is identified and its hyperparameters are used as defaults in the config.yaml file, managed by Hydra for configuration through the command line.
+
+### Current Limitations:
+
+- **Outdated Dependencies:** The provided dependencies require updates for compatibility with MLflow and Hydra.
+- **Exploratory Data Analysis (EDA):** The current pandas profiling library is outdated. Consider exploring alternatives.
+- **Model Improvement:** The random forest model with basic hyperparameter tuning could benefit from exploration of other models like Ridge Regression, SVM Regression, and LightGBM Regressor.
+- **Deployment:** Production-ready deployment is not implemented. Our use case involves frequent batch processing of new data, suggesting containerization for efficient execution.
+
+### Proposed Improvements:
+
+- **Containerization:** Leverage MLflow's Docker image packaging capabilities to create a self-contained image for deployment to various environments like Kubernetes [mlflow documentation](https://www.mlflow.org/docs/latest/models.html#built-in-deployment-tools).
+- **CI/CD Pipeline:** Integrate containerization with an official CI/CD pipeline to automate code review, testing, and container image pushing to repositories.
+- **Container Orchestration:** Utilize container orchestration tools like Kubernetes for efficient management.
+- **Infrastructure as Code:** Explore infrastructure-as-code tools and frameworks for deployment strategy development.
+
+### Additional Resources:
+
+Stephen Oladele's blog post on MLOps architecture provides a workflow diagram for these components [blog](https://neptune.ai/blog/mlops-architecture-guide) post Stephen Oladele showed a simple workflow diagram regarding the specific parts to do..the docker container). To organise everything container orchestration can be done e.g. with Kubernetes. Infrastructure-as-code tools and frameworks help to create a deployment strategy.
+
+![ML workflow:][image1]
 ## Table of contents
 
 - [Introduction](#build-an-ML-Pipeline-for-Short-Term-Rental-Prices-in-NYC)
